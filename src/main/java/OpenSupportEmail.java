@@ -16,18 +16,18 @@ public class OpenSupportEmail {
         String expectedHref = "mailto:stephen@delivait.com";
         boolean match = expectedHref.equalsIgnoreCase(mailtoHref);
 
+        System.out.println(); // Adds a blank line above
         System.out.println("Expected: " + expectedHref);
         System.out.println("Actual:   " + mailtoHref);
         System.out.println("Match?    " + match);
+        System.out.println(); // Adds a blank line below
 
         if (match) {
-            emailSupport.click();
-            if (java.awt.Desktop.isDesktopSupported()) {
-                java.awt.Desktop.getDesktop().mail(new java.net.URI(mailtoHref));
-            }
-            Thread.sleep(5000);
+            emailSupport.click();  // This will open the mail client once
+            Thread.sleep(5000); // Wait for the client to open
         }
 
         return match;
     }
 }
+

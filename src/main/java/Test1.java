@@ -17,15 +17,15 @@ public class Test1 {
     }
 
     @Test
-    public void verifySupportEmailLink() throws Exception {
+    public void testOpenSupportEmail() throws Exception {
         boolean result = OpenSupportEmail.openSupportEmail(driver);
-        Assert.assertTrue(result, "Support Email href did not match expected.");
+        Assert.assertTrue(result, "The mailto link did not match as expected.");
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
-            driver.quit();
+            driver.quit();  // Quit the browser session
         }
     }
 }
